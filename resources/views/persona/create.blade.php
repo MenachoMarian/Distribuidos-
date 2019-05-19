@@ -6,7 +6,10 @@
 	{{Form::open(array('route'=>'persona.store','method'=>'post')) }}
        {{ Form::label('ci','C.I: ') }}
        {{ Form::number('ci','0', ['id'=>'ci','required']) }}
-       <br>
+       <br>   
+       @if($errors -> has('ci'))
+           <font color="red">{{$errors->first()}}</font><br>
+       @endif
        {{ Form::label('nombres','Nombres: ')}}
        {{ Form::text('nombres','', ['id'=>'nombres',
        'placeholder'=>'Introduzca el nombre','required'])}}
@@ -26,6 +29,9 @@
        {{ Form::text('email','', ['id'=>'email',
        'placeholder'=>'Introduzca el correo','required'])}}
        <br>
+       @if($errors -> has('email'))
+          <font color="red">{{ $errors->first('email')}}</font><br>
+       @endif
        {{ Form::label('password','Contraseña: ')}}
        {{ Form::password('password', ['id'=>'password',
        'placeholder'=>'Introduzca contraseña','required'])}}
@@ -33,12 +39,16 @@
        {{ Form::label('password_confir','Confirmar contraseña: ') }}
        {{ Form::password('password_confir', ['id'=>'password_confir',
        'placeholder'=>'Introduzca contraseña','required'])}}
-       <br>njm  
+       <br>
+       @if($errors -> has('password_confir'))
+          <font color="red">{{$errors->first('password_confir',':message')}}</font><br>
+      @endif
+
        {{ Form::reset('Borrar') }}
        {{ Form::submit('Guardar',['class'=>'']) }}
 
-
 	{{ Form::close() }}
 
+       
 </body>
 </html>

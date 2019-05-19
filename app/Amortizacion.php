@@ -8,7 +8,7 @@ use App\Cajera;
 class Amortizacion extends Model
 {
     //
-    protected $table="amortizaciones";
+    protected $table = 'amortizaciones';
     public function prestamo(){
     	return $this->belongsTo(Prestamo::class);
     }

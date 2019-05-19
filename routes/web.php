@@ -73,5 +73,7 @@ Route::get('prestamo/plan/{id}','PrestamoController@plan_pagos');
 
 //07/05/19
 Route::get('amortizaciones','AmortizacionController@index');
-Route::post('amortizaciones/buscar','AmortizacionController@buscar')
+Route::get('amortizaciones/buscar','AmortizacionController@buscar')
             ->name('amortizacion.buscar');
+//10/05/19
+Route::post('amortizaciones/pagar','AmortizacionController@store')->name('pagar.cuota');            

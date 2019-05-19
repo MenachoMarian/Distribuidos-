@@ -7,7 +7,7 @@ use App\Amortizacion;
 class Cajera extends Model
 {
     //
-    protected $table="cajeras";
+    protected $table='cajeras';
 
     public function amortizaciones(){
     	return $this->hasMany(Amortizacion::class);
